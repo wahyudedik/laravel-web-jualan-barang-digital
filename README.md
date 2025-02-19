@@ -22,7 +22,7 @@
         b. total barang
         c. total pembeli
         d. total transaksi
-    - users
+    - users -> done
     - input barang
         a. nama barang
         b. deskripsi barang
@@ -47,10 +47,6 @@
         e. status (sudah dibayar atau belum)
         f. tanggal transaksi
 
-proses :
-desain 
-model
-migartion
-user
-route
-view - kurang
+akun :
+dev@gmail.com
+password

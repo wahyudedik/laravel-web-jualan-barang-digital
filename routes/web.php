@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,9 +13,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/dashboard/users', function () {
-        return view('users');
-    })->name('user');
+    // resource route for users
+    //   GET|HEAD        dashboard/users ...................................................................... users.index › UserController@index 
+    //   POST            dashboard/users ...................................................................... users.store › UserController@store 
+    //   GET|HEAD        dashboard/users/create ............................................................. users.create › UserController@create 
+    //   GET|HEAD        dashboard/users/{user} ................................................................. users.show › UserController@show 
+    //   PUT|PATCH       dashboard/users/{user} ............................................................. users.update › UserController@update 
+    //   DELETE          dashboard/users/{user} ........................................................... users.destroy › UserController@destroy 
+    //   GET|HEAD        dashboard/users/{user}/edit ............................................................ users.edit › UserController@edit 
+    Route::resource('/dashboard/users', UserController::class);
 
     Route::get('/dashboard/products', function () {
         return view('products.index');
